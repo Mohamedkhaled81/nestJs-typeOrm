@@ -1,4 +1,4 @@
 export class CreateListingDto {
-    description: string;
-    rating: number;
+  description: string;
+  rating: number;
 }

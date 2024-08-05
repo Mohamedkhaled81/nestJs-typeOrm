@@ -1,4 +1,12 @@
-import { Entity, Column, OneToOne, JoinColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  Column,
+  OneToOne,
+  JoinColumn,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 
 import { Listing } from './listing.entity';
 import { AbstractEntity } from 'src/database/abstract.entity';
@@ -15,11 +23,11 @@ export class Item extends AbstractEntity<Item> {
 
   @OneToOne(() => Listing, { cascade: true })
   @JoinColumn()
-  listing: Listing
+  listing: Listing;
 
   // cascade is true saves the entity asssociated with the parent entity..
   @OneToMany(() => Comment, (comment) => comment.item, { cascade: true })
-  comments: Comment[]
+  comments: Comment[];
 
   @ManyToMany(() => Tag, { cascade: true })
   @JoinTable()

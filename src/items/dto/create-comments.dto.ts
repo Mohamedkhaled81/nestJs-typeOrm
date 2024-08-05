@@ -1,3 +1,3 @@
 export class CreateCommentsDto {
-    content: string;
+  content: string;
 }

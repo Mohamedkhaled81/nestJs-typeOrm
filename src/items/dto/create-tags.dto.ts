@@ -1,3 +1,3 @@
 export class CreateTagDto {
-    content: string;
+  content: string;
 }

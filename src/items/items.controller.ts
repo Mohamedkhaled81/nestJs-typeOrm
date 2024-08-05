@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, ParseIntPipe, HttpCode } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Patch,
+  Delete,
+  Body,
+  Param,
+  ParseIntPipe,
+  HttpCode,
+} from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { CreatItemDto } from './dto/create-items.dto';
 import { UpdateItemsDto } from './dto/update-items.dto';
 
 @Controller('api/v1/items')
 export class itemsController {
-  constructor(private readonly itemService: ItemsService){}
+  constructor(private readonly itemService: ItemsService) {}
 
   @Post()
   async create(@Body() itemData: CreatItemDto) {
@@ -23,7 +33,10 @@ export class itemsController {
   }
 
   @Patch(':itemId')
-  async update(@Param('itemId', ParseIntPipe) itemId: number, @Body() itemData: UpdateItemsDto) {
+  async update(
+    @Param('itemId', ParseIntPipe) itemId: number,
+    @Body() itemData: UpdateItemsDto,
+  ) {
     return await this.itemService.update(itemId, itemData);
   }
 

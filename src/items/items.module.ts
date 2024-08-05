@@ -11,6 +11,6 @@ import { ItemSubscriber } from './entities/item.subscriber';
 @Module({
   imports: [TypeOrmModule.forFeature([Item, Listing, Comment, Tag])],
   controllers: [itemsController],
-  providers: [ItemsService, ItemSubscriber]
+  providers: [ItemsService, ItemSubscriber],
 })
 export class ItemsModule {}
